@@ -1,0 +1,52 @@
+{% include 'home/header.html.twig' %}
+<!-- Form create invoice -->
+<h2> Create Invoice</h2>
+<form method="post">
+    <div class="form-group">
+        <label for="number-invoice">Number Invoice</label>
+        <input type="text" class="form-control" name="number_invoice" id="number-invoice" placeholder="Enter number invoice" required>
+    </div>
+    <div class="form-group">
+        <label for="date_invoice">Data Invoice</label>
+        <input type="date" class="form-control" name="date_creation_invoice" id="date-creation-invoice" placeholder="Enter data to invoice" required>
+    </div>
+    <div class="form-group">
+        <label for="id_client">Id Client</label>
+        <input type="text" class="form-control" name="id_client" id="id-client" placeholder="Enter data to invoice" required>
+    </div>
+
+    <!-- table create row data invoice -->
+    <br>
+    <br>
+    <h5> Create row data for invoice</h5>
+
+    <table class="table" name="table-row" id="table-row">
+        <thead>
+        <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Tax (IVA)</th>
+            <th scope="col">Total</th>
+            <th scope="col"><button class="btn-primary" id="add-row">Add</button></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td hidden><input type="hidden" name="rows[]" /></td>
+            <td><textarea type="text" name="description[]"></textarea></td>
+            <td><input type="number" name="quantity[]" /></td>
+            <td><input type="number" name="amount[]" step=".01" /></td>
+            <td><input type="number" name="tax[]" step=".01" /></td>
+            <td><input type="number" name="total[]" step=".01" /></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- /table -->
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!-- /form -->
+{% include 'home/footer.html.twig' %}

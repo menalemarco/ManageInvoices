@@ -1,0 +1,9 @@
+{% include 'home/header.html.twig' %}
+    <div class="container">
+        <h2>Manage Invoices</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="{{ path('invoices_create') }}">Create Invoices</a></li>
+            <li class="list-group-item"><a href="{{ path('invoices_show') }}">Show Invoices</a></li>
+        </ul>
+    </div>
+{% include 'home/footer.html.twig' %}

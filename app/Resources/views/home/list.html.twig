@@ -1,0 +1,52 @@
+{% include 'home/header.html.twig' %}
+<!-- Form create invoice -->
+<h2> List Invoice</h2>
+<br>
+<table class="table table-condensed table-bordered" style="border-collapse:collapse;" data-toggle="table" data-pagination="true" data-search="true" data-show-pagination-switch="true">
+
+    <thead>
+    <tr>
+        <th>Number Invoice</th>
+        <th>Data</th>
+        <th>Id Client</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for invoice in invoices %}
+        <tr data-toggle="collapse" data-target="#collapsedRow{{invoice.id}}" class="accordion-toggle">
+            <td>{{ invoice.number|e }}</td>
+            <td>{{ invoice.creationDate|date("m/d/Y") }}</td>
+            <td>{{ invoice.idClient|e }}</td>
+        </tr>
+        <tr>
+            <td colspan="12" class="hiddenRow">
+                <div class="accordion-body collapse container-fluid" id="collapsedRow{{invoice.id}}">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Tax (IVA)</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for invoiceData in invoice.invoiceData %}
+                        <tr>
+                            <td>{{ invoiceData.description|e }}</td>
+                            <td>{{ invoiceData.qty|e }}</td>
+                            <td>{{ invoiceData.amount|e }}</td>
+                            <td>{{ invoiceData.tax|e }}</td>
+                            <td>{{ invoiceData.total|e }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% include 'home/footer.html.twig' %}

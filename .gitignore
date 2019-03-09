@@ -1,17 +1,12 @@
-/.web-server-pid
-/app/config/parameters.yml
-/build/
-/phpunit.xml
-/var/*
-!/var/cache
-/var/cache/*
-!var/cache/.gitkeep
-!/var/logs
-/var/logs/*
-!var/logs/.gitkeep
-!/var/sessions
-/var/sessions/*
-!var/sessions/.gitkeep
-!var/SymfonyRequirements.php
+# .gitignore
+###> symfony/framework-bundle ###
+.env
+/bin/
+/tests/
+/var/cache/
+/var/logs/
+/var/sessions/
+/var/bootstrap.php.cache
 /vendor/
-/web/bundles/
+/.idea/
+###< symfony/framework-bundle ###
